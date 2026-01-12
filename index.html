@@ -7,21 +7,21 @@
   <link rel="stylesheet" href="css/main.css" />
 </head>
 
-<!-- Pick theme per page: neutral | ocean | ember | mono -->
+<!-- Theme per page: neutral | ocean | ember | mono -->
 <body data-theme="neutral">
 
-  <!-- Topbar / Tabs -->
+  <!-- Topbar -->
   <header class="topbar">
     <div class="brand">
       <div class="logo" aria-hidden="true"></div>
       <div class="title">
-        <b>Maneit.ai × Emotional Gaming</b>
-        <span>Private knowledge deck • calm • structured • non-marketing</span>
+        <b>Maneit.ai Emotional Gaming</b>
+        <span>Private knowledge deck • calm • structured • no pitch</span>
       </div>
     </div>
 
     <nav class="tabs" aria-label="Topics">
-      <a class="tab is-active" href="index.html">Home</a>
+      <a class="tab is-active" href="index.html" aria-current="page">Home</a>
       <a class="tab" href="topics/01_ai_basics.html">AI Basics</a>
       <a class="tab" href="topics/02_automation_agents.html">Automation & Agents</a>
       <a class="tab" href="topics/03_hivemind.html">The Hivemind</a>
@@ -32,71 +32,86 @@
     </nav>
   </header>
 
-  <main class="wrap">
+  <main class="wrap front">
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="kicker">
-        <span class="pill">PRIVATE • 1:1</span>
-        <span class="pill">NO SALES PITCH</span>
-        <span class="pill">READ LINEARLY</span>
+    <!-- HERO -->
+    <section class="frontHero">
+      <div class="metaRow">
+        <span class="chip">PRIVATE / 1:1</span>
+        <span class="chip">NON-MARKETING</span>
+        <span class="chip">READ LINEARLY</span>
       </div>
 
-      <h1>Maneit.ai Emotional Gaming</h1>
-      <p class="lede">
-        A calm, detailed, structured reference deck. Tabs are topics. The tone is neutral and usable for ADHD/autism pacing.
+      <h1 class="frontTitle">Maneit.ai Emotional Gaming</h1>
+      <p class="frontSub">
+        A calm, detailed, structured reference deck. Tabs are topics. No interactive UI required.
       </p>
 
-      <div class="heroGrid">
-        <div class="card callout">
-          <h3>How to use</h3>
+      <div class="frontGrid3">
+        <div class="card">
+          <h3>What this is</h3>
+          <p>
+            A private knowledge share: system thinking, reasoning layer design, and the Emotional Gaming direction.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>How to read</h3>
           <ul class="bullets">
-            <li>Read top to bottom.</li>
+            <li>Low visual noise.</li>
             <li>Diagrams over walls of text.</li>
-            <li>Presenter explains; page stays calm.</li>
-            <li>Content is modular and expandable.</li>
+            <li>Presenter voice; page stays calm.</li>
+            <li>Expandable later without changing structure.</li>
           </ul>
         </div>
 
-        <div class="card callout">
-          <h3>Boundaries</h3>
+        <div class="card">
+          <h3>Hard constraints</h3>
           <ul class="bullets">
-            <li>Not public marketing.</li>
-            <li>No “buy now” framing.</li>
-            <li>Focus: research + tools that help people.</li>
-            <li>Goal: adapt models to real fields without replacing humans.</li>
+            <li>0 system use on the CS2 PC.</li>
+            <li>Offload everything.</li>
+            <li>Keep the main environment untouched.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- System overview anchor -->
+    <!-- SYSTEM OVERVIEW (real swap target) -->
     <section class="section">
       <header class="sectionHead">
         <h2>System overview</h2>
-        <p class="muted">Placeholder diagram area. Replace with <code>assets/diagrams/system_overview.svg</code>.</p>
+        <p class="muted">This block automatically swaps from placeholder → final diagram when the SVG file exists.</p>
       </header>
 
       <figure class="diagramFrame">
-        <div class="diagramTitle">system_overview</div>
-        <div class="diagramPlaceholder" role="img" aria-label="System overview placeholder diagram area">
-          <div class="gridlines" aria-hidden="true"></div>
-          <div class="placeholderNote">
-            Replace this with a final diagram later.
+        <!-- If this file exists, it will display. Otherwise the fallback shows. -->
+        <object
+          class="diagramObj"
+          type="image/svg+xml"
+          data="assets/diagrams/system_overview.svg"
+          aria-label="System overview diagram"
+        >
+          <div class="diagramFallback">
+            <div class="fallbackTitle">system_overview</div>
+            <div class="fallbackGrid" aria-hidden="true"></div>
+            <div class="fallbackNote">Drop a final diagram into <code>assets/diagrams/system_overview.svg</code>.</div>
           </div>
-        </div>
-        <figcaption class="caption">Saved locally; can be uploaded to GitHub whenever needed.</figcaption>
+        </object>
+
+        <figcaption class="caption">
+          File target: <code>assets/diagrams/system_overview.svg</code>
+        </figcaption>
       </figure>
     </section>
 
-    <!-- Intent cards (tight + visible) -->
+    <!-- PURPOSE / INTENT (tight + readable) -->
     <section class="section">
       <header class="sectionHead">
-        <h2>Core intent</h2>
-        <p class="muted">Short statements that define the project’s direction.</p>
+        <h2>Purpose</h2>
+        <p class="muted">Short, stable statements (no pitch).</p>
       </header>
 
-      <div class="cards2">
+      <div class="frontGrid2">
         <div class="card">
           <h3>Core intent</h3>
           <p>Adapt AI to the human — not humans adapting themselves to AI.</p>
@@ -109,14 +124,14 @@
       </div>
     </section>
 
-    <!-- Quick map -->
+    <!-- DECK MAP -->
     <section class="section">
       <header class="sectionHead">
-        <h2>Deck map</h2>
-        <p class="muted">A simple reading order. Each topic is one layer.</p>
+        <h2>Start here</h2>
+        <p class="muted">Each topic is one layer. Read in order.</p>
       </header>
 
-      <div class="map">
+      <div class="deckMap">
         <a class="mapItem" href="topics/01_ai_basics.html"><span class="idx">1</span> AI Basics <span class="tag">shared vocabulary</span></a>
         <a class="mapItem" href="topics/02_automation_agents.html"><span class="idx">2</span> Automation & Agents <span class="tag">pipelines</span></a>
         <a class="mapItem" href="topics/03_hivemind.html"><span class="idx">3</span> The Hivemind <span class="tag">roles</span></a>
@@ -127,9 +142,17 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <span class="muted">Local-first. Structured reference. No tracking. No external dependencies.</span>
+    <footer class="frontFooter">
+      <div class="themeLine">
+        <span class="muted">Theme system enabled:</span>
+        <span class="chip chipTiny">neutral</span>
+        <span class="chip chipTiny">ocean</span>
+        <span class="chip chipTiny">ember</span>
+        <span class="chip chipTiny">mono</span>
+      </div>
+      <span class="muted">Local-first. No tracking. No dependencies.</span>
     </footer>
+
   </main>
 </body>
 </html>
