@@ -2,90 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maneit.ai  Emotional Gaming  Private Deck</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maneit.ai × Emotional Gaming — Private knowledge deck</title>
   <link rel="stylesheet" href="css/main.css" />
 </head>
-<body>
-  <div class="wrap">
-    <header class="topbar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div class="title">
-          <b>Maneit.ai  Emotional Gaming</b>
-          <span>Private knowledge deck  calm  detailed  no pitch</span>
-        </div>
+
+<!-- Pick theme per page: neutral | ocean | ember | mono -->
+<body data-theme="neutral">
+
+  <!-- Topbar / Tabs -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div class="title">
+        <b>Maneit.ai × Emotional Gaming</b>
+        <span>Private knowledge deck • calm • structured • non-marketing</span>
       </div>
-      <nav class="nav">
-<a class='pill active' href='index.html'>Home</a>
-<a class='pill' href='topics/01_ai_basics.html'>AI Basics</a>
-<a class='pill' href='topics/02_automation_agents.html'>Automation & Agents</a>
-<a class='pill' href='topics/03_hivemind.html'>The Hivemind</a>
-<a class='pill' href='topics/04_distributed_nodes.html'>Distributed Nodes</a>
-<a class='pill' href='topics/05_reasoning_model.html'>Maneit Reasoning</a>
-<a class='pill' href='topics/06_emotional_gaming.html'>Emotional Gaming</a>
-<a class='pill' href='topics/07_governance_status.html'>Governance & Timing</a>
+    </div>
 
-      </nav>
-    </header>
+    <nav class="tabs" aria-label="Topics">
+      <a class="tab is-active" href="index.html">Home</a>
+      <a class="tab" href="topics/01_ai_basics.html">AI Basics</a>
+      <a class="tab" href="topics/02_automation_agents.html">Automation & Agents</a>
+      <a class="tab" href="topics/03_hivemind.html">The Hivemind</a>
+      <a class="tab" href="topics/04_distributed_nodes.html">Distributed Nodes</a>
+      <a class="tab" href="topics/05_maneit_reasoning.html">Maneit Reasoning</a>
+      <a class="tab" href="topics/06_emotional_gaming.html">Emotional Gaming</a>
+      <a class="tab" href="topics/07_governance_timing.html">Governance & Timing</a>
+    </nav>
+  </header>
 
+  <main class="wrap">
+
+    <!-- Hero -->
     <section class="hero">
-      <div class="kicker">PRIVATE / 1:1</div>
-      <h1>Maneit.ai  Emotional Gaming</h1>
-      <p class="lead">
-        A calm, detailed, structured share. Tabs per topic. Premium visuals. No interactive buttons needed.
+      <div class="kicker">
+        <span class="pill">PRIVATE • 1:1</span>
+        <span class="pill">NO SALES PITCH</span>
+        <span class="pill">READ LINEARLY</span>
+      </div>
+
+      <h1>Maneit.ai Emotional Gaming</h1>
+      <p class="lede">
+        A calm, detailed, structured reference deck. Tabs are topics. The tone is neutral and usable for ADHD/autism pacing.
       </p>
 
-      <div class="figure" role="group" aria-label="System overview diagram">
-        <img alt="System overview" src="assets/diagrams/system_overview.svg" />
-        <div class="figcap">system_overview.svg</div>
+      <div class="heroGrid">
+        <div class="card callout">
+          <h3>How to use</h3>
+          <ul class="bullets">
+            <li>Read top to bottom.</li>
+            <li>Diagrams over walls of text.</li>
+            <li>Presenter explains; page stays calm.</li>
+            <li>Content is modular and expandable.</li>
+          </ul>
+        </div>
+
+        <div class="card callout">
+          <h3>Boundaries</h3>
+          <ul class="bullets">
+            <li>Not public marketing.</li>
+            <li>No “buy now” framing.</li>
+            <li>Focus: research + tools that help people.</li>
+            <li>Goal: adapt models to real fields without replacing humans.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="grid">
-<div class="card wide">
-  <h2>Purpose</h2>
-  <p>
-    This site is a private 1:1 knowledge-share. Its not public marketing and not a sales pitch.
-    Its meant to be calm, detailed, and readable for ADHD/autism pacing.
-  </p>
-  <ul>
-    <li>One topic per tab.</li>
-    <li>Diagrams over walls of text where possible.</li>
-    <li>We can expand each section later without changing the structure.</li>
-  </ul>
-</div>
+    <!-- System overview anchor -->
+    <section class="section">
+      <header class="sectionHead">
+        <h2>System overview</h2>
+        <p class="muted">Placeholder diagram area. Replace with <code>assets/diagrams/system_overview.svg</code>.</p>
+      </header>
 
-<div class="card">
-  <h2>Core intent</h2>
-  <div class="callout">
-    <b>Adapt AI to the human.</b>
-    <div class="muted">Not humans adapting themselves to AI.</div>
-  </div>
-</div>
+      <figure class="diagramFrame">
+        <div class="diagramTitle">system_overview</div>
+        <div class="diagramPlaceholder" role="img" aria-label="System overview placeholder diagram area">
+          <div class="gridlines" aria-hidden="true"></div>
+          <div class="placeholderNote">
+            Replace this with a final diagram later.
+          </div>
+        </div>
+        <figcaption class="caption">Saved locally; can be uploaded to GitHub whenever needed.</figcaption>
+      </figure>
+    </section>
 
-<div class="card">
-  <h2>Core constraint</h2>
-  <div class="callout">
-    <b>0 system use on the CS2 PC.</b>
-    <div class="muted">Offload everything. Keep the main environment untouched.</div>
-  </div>
-</div>
+    <!-- Intent cards (tight + visible) -->
+    <section class="section">
+      <header class="sectionHead">
+        <h2>Core intent</h2>
+        <p class="muted">Short statements that define the project’s direction.</p>
+      </header>
 
-<div class="card wide">
-  <h2>System overview</h2>
-  <p>
-    This diagram is a placeholder right now. We will replace it with a clean final diagram later.
-  </p>
-  <div class="code">
-    Replace diagrams in: assets/diagrams/*.svg
-  </div>
-</div>
+      <div class="cards2">
+        <div class="card">
+          <h3>Core intent</h3>
+          <p>Adapt AI to the human — not humans adapting themselves to AI.</p>
+        </div>
+
+        <div class="card">
+          <h3>Core constraint</h3>
+          <p>0 system use on the CS2 PC. Offload everything. Keep the main environment untouched.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick map -->
+    <section class="section">
+      <header class="sectionHead">
+        <h2>Deck map</h2>
+        <p class="muted">A simple reading order. Each topic is one layer.</p>
+      </header>
+
+      <div class="map">
+        <a class="mapItem" href="topics/01_ai_basics.html"><span class="idx">1</span> AI Basics <span class="tag">shared vocabulary</span></a>
+        <a class="mapItem" href="topics/02_automation_agents.html"><span class="idx">2</span> Automation & Agents <span class="tag">pipelines</span></a>
+        <a class="mapItem" href="topics/03_hivemind.html"><span class="idx">3</span> The Hivemind <span class="tag">roles</span></a>
+        <a class="mapItem" href="topics/04_distributed_nodes.html"><span class="idx">4</span> Distributed Nodes <span class="tag">architecture</span></a>
+        <a class="mapItem" href="topics/05_maneit_reasoning.html"><span class="idx">5</span> Maneit Reasoning <span class="tag">adaptation</span></a>
+        <a class="mapItem" href="topics/06_emotional_gaming.html"><span class="idx">6</span> Emotional Gaming <span class="tag">healthier play</span></a>
+        <a class="mapItem" href="topics/07_governance_timing.html"><span class="idx">7</span> Governance & Timing <span class="tag">execution rules</span></a>
+      </div>
     </section>
 
     <footer class="footer">
-      Saved locally in <span style="font-family:var(--mono)">C:\Users\krist\Desktop\baelakor\site</span>. Upload manually to GitHub whenever you want.
+      <span class="muted">Local-first. Structured reference. No tracking. No external dependencies.</span>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
