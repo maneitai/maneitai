@@ -1,0 +1,317 @@
+<!-- File: topics/02_automation_agents.html
+     Page 2 — Automation & Agents
+     Style: presenter voice, neutral, explanatory (no “you / I / my”)
+     Audience: ADHD / autism / dyslexia friendly
+     Notes:
+     - No JS needed
+     - Uses ../css/main.css from your scaffold
+     - Includes TWO inline diagrams:
+       (1) Pipeline / stages
+       (2) Decision gate (approval → JSON work order)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Automation & Agents — Why pipelines become inevitable</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <b>Maneit.ai × Emotional Gaming</b>
+          <span>Reference material • structured • calm • non-marketing</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Topics">
+        <a class="pill" href="../index.html">Home</a>
+        <a class="pill" href="./01_ai_basics.html">AI Basics</a>
+        <a class="pill active" href="./02_automation_agents.html">Automation & Agents</a>
+        <a class="pill" href="./03_hivemind.html">The Hivemind</a>
+        <a class="pill" href="./04_distributed_nodes.html">Distributed Nodes</a>
+        <a class="pill" href="./05_reasoning_model.html">Maneit Reasoning</a>
+        <a class="pill" href="./06_emotional_gaming.html">Emotional Gaming</a>
+        <a class="pill" href="./07_governance_status.html">Governance & Timing</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="kicker">POINT 2</div>
+      <h1>Automation & Agents — stability through role separation</h1>
+      <p class="lead">
+        This section explains why “better prompts” stop being sufficient
+        once tasks become larger than a single response.
+        Automation reduces cognitive load, and agents/pipelines prevent collapse under heavy work.
+      </p>
+
+      <!-- === VISUALISATION 1: PIPELINE === -->
+      <div class="figure" role="group" aria-label="Pipeline diagram">
+        <svg viewBox="0 0 1000 560" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" aria-label="Pipeline stages: input to execution">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.6)"/>
+            </marker>
+            <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(122,167,255,.95)"/>
+            </marker>
+            <style>
+              .frame { fill: rgba(0,0,0,.14); stroke: rgba(255,255,255,.12); stroke-width: 2; }
+              .box   { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+              .pill  { fill: rgba(255,255,255,.05); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+              .accent{ fill: rgba(122,167,255,.14); stroke: rgba(122,167,255,.38); stroke-width: 2; }
+              .accent2{ fill: rgba(110,242,194,.12); stroke: rgba(110,242,194,.30); stroke-width: 2; }
+              .lane  { fill: rgba(255,255,255,.03); stroke: rgba(255,255,255,.18); stroke-width: 2; }
+
+              .title { font: 900 20px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sub   { font: 650 13px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .txt   { font: 800 13px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sm    { font: 650 12px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .mono  { font: 650 12px ui-monospace, monospace; fill: #A9B7CC; }
+
+              .line  { fill:none; stroke: rgba(255,255,255,.35); stroke-width: 2.5; marker-end:url(#arrow); }
+              .lineA { fill:none; stroke: rgba(122,167,255,.92); stroke-width: 2.8; marker-end:url(#arrowAccent); }
+            </style>
+          </defs>
+
+          <rect x="16" y="16" width="968" height="528" rx="20" class="frame"/>
+          <text x="44" y="62" class="title">Pipeline flow (low-overload structure)</text>
+          <text x="44" y="86" class="sub">Break large work into stages so each part has a single job.</text>
+
+          <!-- stages -->
+          <rect x="70"  y="170" width="170" height="86" rx="16" class="box"/>
+          <text x="155" y="208" text-anchor="middle" class="txt">Input</text>
+          <text x="155" y="230" text-anchor="middle" class="sm">web / text</text>
+
+          <rect x="270" y="170" width="170" height="86" rx="16" class="accent"/>
+          <text x="355" y="208" text-anchor="middle" class="txt">Interpret</text>
+          <text x="355" y="230" text-anchor="middle" class="sm">intent + context</text>
+
+          <rect x="470" y="170" width="170" height="86" rx="16" class="accent"/>
+          <text x="555" y="208" text-anchor="middle" class="txt">Plan</text>
+          <text x="555" y="230" text-anchor="middle" class="sm">steps + checks</text>
+
+          <rect x="670" y="170" width="260" height="86" rx="999" class="accent2"/>
+          <text x="800" y="208" text-anchor="middle" class="txt">Execute</text>
+          <text x="800" y="230" text-anchor="middle" class="sm">write / run / build</text>
+
+          <!-- arrows -->
+          <path d="M240 213 L270 213" class="line"/>
+          <path d="M440 213 L470 213" class="lineA"/>
+          <path d="M640 213 L670 213" class="line"/>
+
+          <!-- lanes -->
+          <rect x="90" y="340" width="260" height="72" rx="999" class="lane"/>
+          <text x="220" y="383" text-anchor="middle" class="txt">Reasoning layer</text>
+
+          <rect x="370" y="340" width="260" height="72" rx="999" class="lane"/>
+          <text x="500" y="383" text-anchor="middle" class="txt">Dispatch</text>
+
+          <rect x="650" y="340" width="260" height="72" rx="999" class="lane"/>
+          <text x="780" y="383" text-anchor="middle" class="txt">Execution node</text>
+
+          <text x="44" y="520" class="sub">Typical chain: interpret → plan → approval → work order → execution → verification.</text>
+        </svg>
+
+        <div class="figcap">Visualisation: pipeline stages and separation of responsibilities</div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="grid">
+
+      <div class="card wide">
+        <h2>Automation: cognitive load removal (not “speed hacks”)</h2>
+        <p>
+          Automation is often described as “faster.”
+          In practice, the primary benefit is relief:
+          fewer decisions, fewer repeated steps, and fewer opportunities for small mistakes.
+        </p>
+        <ul>
+          <li><b>Every manual step is a decision.</b></li>
+          <li><b>Every decision costs energy.</b></li>
+          <li>Energy is the limiting factor for sustainable work, not talent.</li>
+        </ul>
+        <div class="callout">
+          <b>Automation principle</b>
+          <div class="muted">
+            If a workflow requires dozens of small steps every time, the workflow eventually collapses.
+            The stable solution is to remove steps, not to demand perfection.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>What scripts provide</h2>
+        <p>
+          A script is a locked-in decision.
+          It preserves correct action when attention, energy, or stress varies.
+        </p>
+        <ul>
+          <li>Creates folders consistently</li>
+          <li>Writes files deterministically</li>
+          <li>Runs repeatable build steps</li>
+          <li>Prevents “drift” caused by manual variance</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Why “one model does everything” breaks under load</h2>
+        <p>
+          In a single conversational context, a model is typically expected to:
+          listen, interpret intent, plan, reason, write, and execute.
+        </p>
+        <p>
+          Under heavy tasks, these roles conflict.
+          Context becomes noisy and the goal drifts.
+        </p>
+        <ul>
+          <li>Reasoning bleeds into writing</li>
+          <li>Execution constraints overwrite the plan</li>
+          <li>Large outputs derail or become inconsistent</li>
+          <li>Failure becomes global instead of local</li>
+        </ul>
+      </div>
+
+      <div class="card wide">
+        <h2>Agents: boring (and useful) role separation</h2>
+        <p>
+          “Agents” does not mean magic.
+          It means clearly separating responsibilities so that each component stays stable.
+        </p>
+        <ul>
+          <li><b>Reasoning role:</b> holds priorities, refines intent, produces stable plans</li>
+          <li><b>Dispatch role:</b> converts approved plans into structured work orders</li>
+          <li><b>Execution role:</b> generates outputs and writes them to disk deterministically</li>
+          <li><b>Verification role:</b> validates structure and placement (“put it where it belongs”)</li>
+        </ul>
+        <div class="callout">
+          <b>Stability mechanism</b>
+          <div class="muted">
+            A system is reliable when failures stay local. Role separation keeps failures local.
+          </div>
+        </div>
+      </div>
+
+      <!-- === VISUALISATION 2: APPROVAL GATE === -->
+      <div class="card wide">
+        <h2>Approval gate: where a plan becomes a work order</h2>
+        <p>
+          This is the moment where the system becomes trustworthy.
+          Nothing proceeds automatically.
+          An explicit approval step converts intent into a deterministic artifact.
+        </p>
+
+        <div class="figure" role="group" aria-label="Approval gate diagram">
+          <svg viewBox="0 0 1000 560" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+               aria-label="Decision gate: approval creates JSON work order">
+            <defs>
+              <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.6)"/>
+              </marker>
+              <marker id="arrow2A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(122,167,255,.95)"/>
+              </marker>
+              <style>
+                .frame { fill: rgba(0,0,0,.14); stroke: rgba(255,255,255,.12); stroke-width: 2; }
+                .box   { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+                .accent{ fill: rgba(122,167,255,.14); stroke: rgba(122,167,255,.38); stroke-width: 2; }
+                .diamond { fill: rgba(255,255,255,.03); stroke: rgba(255,255,255,.24); stroke-width: 2; }
+                .warn  { fill: rgba(255,209,102,.10); stroke: rgba(255,209,102,.32); stroke-width: 2; }
+
+                .title { font: 900 20px ui-sans-serif, system-ui; fill: #EAF1FF; }
+                .sub   { font: 650 13px ui-sans-serif, system-ui; fill: #A9B7CC; }
+                .txt   { font: 800 13px ui-sans-serif, system-ui; fill: #EAF1FF; }
+                .sm    { font: 650 12px ui-sans-serif, system-ui; fill: #A9B7CC; }
+                .mono  { font: 650 12px ui-monospace, monospace; fill: #A9B7CC; }
+
+                .line  { fill:none; stroke: rgba(255,255,255,.35); stroke-width: 2.5; marker-end:url(#arrow2); }
+                .lineA { fill:none; stroke: rgba(122,167,255,.92); stroke-width: 2.8; marker-end:url(#arrow2A); }
+              </style>
+            </defs>
+
+            <rect x="16" y="16" width="968" height="528" rx="20" class="frame"/>
+            <text x="44" y="62" class="title">Approval gate (“to production”)</text>
+            <text x="44" y="86" class="sub">Converts a plan into a stable artifact: a JSON work order (stored and dispatched).</text>
+
+            <!-- Plan -->
+            <rect x="70" y="220" width="220" height="86" rx="16" class="box"/>
+            <text x="180" y="257" text-anchor="middle" class="txt">Plan</text>
+            <text x="180" y="279" text-anchor="middle" class="sm">steps + constraints</text>
+
+            <!-- Gate -->
+            <path d="M500 200 L610 270 L500 340 L390 270 Z" class="diamond"/>
+            <text x="500" y="260" text-anchor="middle" class="txt">Gate</text>
+            <text x="500" y="282" text-anchor="middle" class="sm">approved?</text>
+
+            <!-- Yes -->
+            <rect x="720" y="190" width="240" height="86" rx="16" class="accent"/>
+            <text x="840" y="227" text-anchor="middle" class="txt">Work order</text>
+            <text x="840" y="249" text-anchor="middle" class="sm">JSON saved</text>
+
+            <!-- No -->
+            <rect x="720" y="320" width="240" height="86" rx="16" class="box"/>
+            <text x="840" y="357" text-anchor="middle" class="txt">Refine</text>
+            <text x="840" y="379" text-anchor="middle" class="sm">clarify + retry</text>
+
+            <!-- arrows -->
+            <path d="M290 263 L390 263" class="line"/>
+            <path d="M610 250 L720 235" class="lineA"/>
+            <path d="M610 290 L720 350" class="line"/>
+
+            <!-- Safety note -->
+            <rect x="70" y="420" width="890" height="88" rx="18" class="warn"/>
+            <text x="94" y="456" class="txt">Safety effect</text>
+            <text x="94" y="480" class="sm">Approval produces deterministic state. This prevents accidental execution and reduces drift under load.</text>
+          </svg>
+
+          <div class="figcap">Visualisation: decision gate that converts plans into JSON work orders</div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>Why architecture can feel like a model upgrade</h2>
+        <p>
+          Many model versions are strong at output.
+          The difference in real work often comes from stability and workflow.
+        </p>
+        <ul>
+          <li>Large outputs become coherent when reasoning is separated from writing/execution</li>
+          <li>Drift reduces when approval gates convert intent into stable artifacts</li>
+          <li>Execution becomes reliable when tools write deterministically</li>
+        </ul>
+        <div class="callout">
+          <b>Key insight</b>
+          <div class="muted">
+            A better workflow can make the same model feel dramatically smarter,
+            because it removes overload and prevents context collapse.
+          </div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>Summary</h2>
+        <div class="code">
+Automation removes decision fatigue.
+Pipelines split work into stable stages.
+Agents separate responsibilities so failure stays local.
+Approval gates convert intent into deterministic work orders (JSON).
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      End of automation section.
+    </footer>
+
+  </div>
+</body>
+</html>

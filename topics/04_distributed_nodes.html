@@ -1,0 +1,297 @@
+<!-- File: topics/04_distributed_nodes.html
+     Page 4 — Distributed Nodes
+     Style: presenter voice, neutral, explanatory (no “you / I / my”)
+     Audience: ADHD / autism / dyslexia friendly
+     Notes:
+     - No JS needed
+     - Uses ../css/main.css from your scaffold
+     - Includes TWO inline diagrams:
+       (1) Distributed node map (Linux reasoning → dispatch → Windows execution → verify/placement)
+       (2) Isolation principle (main PC untouched / CS2 machine isolated)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Distributed Nodes — isolation and stability</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <b>Maneit.ai × Emotional Gaming</b>
+          <span>Reference material • structured • calm • non-marketing</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Topics">
+        <a class="pill" href="../index.html">Home</a>
+        <a class="pill" href="./01_ai_basics.html">AI Basics</a>
+        <a class="pill" href="./02_automation_agents.html">Automation & Agents</a>
+        <a class="pill" href="./03_hivemind.html">The Hivemind</a>
+        <a class="pill active" href="./04_distributed_nodes.html">Distributed Nodes</a>
+        <a class="pill" href="./05_reasoning_model.html">Maneit Reasoning</a>
+        <a class="pill" href="./06_emotional_gaming.html">Emotional Gaming</a>
+        <a class="pill" href="./07_governance_status.html">Governance & Timing</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="kicker">POINT 4</div>
+      <h1>Distributed Nodes — separating roles across machines</h1>
+      <p class="lead">
+        This section explains why distributed nodes are primarily about isolation and stability.
+        Distribution is not “compute flex.”
+        It is a way to keep responsibilities clean, prevent contamination, and protect primary environments.
+      </p>
+
+      <!-- === VISUALISATION 1: DISTRIBUTED PIPELINE MAP === -->
+      <div class="figure" role="group" aria-label="Distributed node map">
+        <svg viewBox="0 0 1000 560" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+             aria-label="Distributed nodes: Linux reasoning, dispatch, Windows execution, verification and placement">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.6)"/>
+            </marker>
+            <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(122,167,255,.95)"/>
+            </marker>
+
+            <style>
+              .frame { fill: rgba(0,0,0,.14); stroke: rgba(255,255,255,.12); stroke-width: 2; }
+              .linux { fill: rgba(122,167,255,.14); stroke: rgba(122,167,255,.38); stroke-width: 2; }
+              .win   { fill: rgba(110,242,194,.12); stroke: rgba(110,242,194,.30); stroke-width: 2; }
+              .node  { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+              .warn  { fill: rgba(255,209,102,.10); stroke: rgba(255,209,102,.32); stroke-width: 2; }
+
+              .title { font: 900 20px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sub   { font: 650 13px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .txt   { font: 800 13px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sm    { font: 650 12px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .mono  { font: 650 12px ui-monospace, monospace; fill: #A9B7CC; }
+
+              .line  { fill:none; stroke: rgba(255,255,255,.32); stroke-width: 2.4; marker-end:url(#arrow); }
+              .lineA { fill:none; stroke: rgba(122,167,255,.90); stroke-width: 2.6; marker-end:url(#arrowA); }
+            </style>
+          </defs>
+
+          <rect x="16" y="16" width="968" height="528" rx="20" class="frame"/>
+          <text x="44" y="62" class="title">Distributed nodes (clean responsibilities)</text>
+          <text x="44" y="86" class="sub">Reasoning and execution live on different machines; verification is separate again.</text>
+
+          <!-- Input (phone/web) -->
+          <rect x="70" y="140" width="200" height="70" rx="16" class="node"/>
+          <text x="170" y="170" text-anchor="middle" class="txt">Web UI</text>
+          <text x="170" y="192" text-anchor="middle" class="sm">phone / remote</text>
+
+          <!-- Linux reasoning -->
+          <rect x="340" y="110" width="280" height="120" rx="18" class="linux"/>
+          <text x="480" y="150" text-anchor="middle" class="txt">Linux node</text>
+          <text x="480" y="172" text-anchor="middle" class="sm">reasoning + planning</text>
+          <text x="480" y="194" text-anchor="middle" class="sm">approval → JSON work order</text>
+
+          <!-- Dispatch -->
+          <rect x="690" y="140" width="240" height="70" rx="999" class="node"/>
+          <text x="810" y="170" text-anchor="middle" class="txt">Dispatch</text>
+          <text x="810" y="192" text-anchor="middle" class="sm">routes work order</text>
+
+          <!-- Windows execution -->
+          <rect x="340" y="300" width="280" height="120" rx="18" class="win"/>
+          <text x="480" y="340" text-anchor="middle" class="txt">Windows node</text>
+          <text x="480" y="362" text-anchor="middle" class="sm">coding / generation</text>
+          <text x="480" y="384" text-anchor="middle" class="sm">writes via automation</text>
+
+          <!-- Verification / placement -->
+          <rect x="690" y="320" width="240" height="70" rx="16" class="node"/>
+          <text x="810" y="350" text-anchor="middle" class="txt">Verifier</text>
+          <text x="810" y="372" text-anchor="middle" class="sm">place in correct location</text>
+
+          <!-- Arrows -->
+          <path d="M270 175 C300 175, 310 170, 340 165" class="line"/>
+          <path d="M620 175 C650 175, 660 175, 690 175" class="lineA"/>
+          <path d="M810 210 C810 255, 620 285, 520 300" class="line"/>
+          <path d="M620 360 C650 360, 660 360, 690 360" class="line"/>
+
+          <!-- Safety note -->
+          <rect x="70" y="455" width="860" height="70" rx="18" class="warn"/>
+          <text x="94" y="487" class="txt">Key property</text>
+          <text x="94" y="509" class="sm">Each node has one job. Handoffs are explicit. Failures stay local.</text>
+        </svg>
+
+        <div class="figcap">Visualisation: reasoning on Linux, execution on Windows, verification as a separate role</div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="grid">
+
+      <div class="card wide">
+        <h2>Definition</h2>
+        <p>
+          “Distributed nodes” means that different responsibilities run on different machines.
+          This is a stability architecture: roles are isolated so that one part cannot overload or contaminate another.
+        </p>
+        <div class="callout">
+          <b>One-sentence definition</b>
+          <div class="muted">
+            Distributed nodes separate roles across machines so that the system stays clean, predictable, and safe under load.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>What distribution enables</h2>
+        <ul>
+          <li>Isolation (no mixed responsibilities)</li>
+          <li>Failure containment (local errors)</li>
+          <li>Reduced context noise (clean handoffs)</li>
+          <li>Security boundaries (less accidental exposure)</li>
+          <li>Primary system protection (no interference)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What distribution is not</h2>
+        <ul>
+          <li>Not a requirement for “big compute”</li>
+          <li>Not dependent on identical hardware</li>
+          <li>Not constant connectivity between everything</li>
+          <li>Not complexity for its own sake</li>
+        </ul>
+        <p>
+          The central goal is quiet reliability.
+        </p>
+      </div>
+
+      <div class="card wide">
+        <h2>Isolation principle: protecting primary environments</h2>
+        <p>
+          A key practical reason for distributed nodes is to keep a primary system untouched.
+          In competitive gaming contexts, the primary system must remain clean and stable.
+          Workload is moved away from that system entirely.
+        </p>
+
+        <!-- === VISUALISATION 2: MAIN PC ISOLATED === -->
+        <div class="figure" role="group" aria-label="Isolation diagram (main PC untouched)">
+          <svg viewBox="0 0 1000 560" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+               aria-label="Isolation: main PC stays untouched while nodes do reasoning and execution">
+            <defs>
+              <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.6)"/>
+              </marker>
+              <style>
+                .frame { fill: rgba(0,0,0,.14); stroke: rgba(255,255,255,.12); stroke-width: 2; }
+                .node  { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+                .linux { fill: rgba(122,167,255,.14); stroke: rgba(122,167,255,.38); stroke-width: 2; }
+                .win   { fill: rgba(110,242,194,.12); stroke: rgba(110,242,194,.30); stroke-width: 2; }
+                .iso   { fill: rgba(255,107,107,.10); stroke: rgba(255,107,107,.34); stroke-width: 2; }
+                .ok    { fill: rgba(110,242,194,.10); stroke: rgba(110,242,194,.30); stroke-width: 2; }
+
+                .title { font: 900 20px ui-sans-serif, system-ui; fill: #EAF1FF; }
+                .sub   { font: 650 13px ui-sans-serif, system-ui; fill: #A9B7CC; }
+                .txt   { font: 800 13px ui-sans-serif, system-ui; fill: #EAF1FF; }
+                .sm    { font: 650 12px ui-sans-serif, system-ui; fill: #A9B7CC; }
+
+                .line  { fill:none; stroke: rgba(255,255,255,.32); stroke-width: 2.4; marker-end:url(#arrow2); }
+                .dash  { fill:none; stroke: rgba(255,255,255,.18); stroke-width: 2.2; stroke-dasharray: 8 8; }
+              </style>
+            </defs>
+
+            <rect x="16" y="16" width="968" height="528" rx="20" class="frame"/>
+            <text x="44" y="62" class="title">Isolation (primary system stays untouched)</text>
+            <text x="44" y="86" class="sub">All reasoning/execution happens on nodes. Primary gaming environment remains clean.</text>
+
+            <!-- Primary PC -->
+            <rect x="70" y="190" width="260" height="180" rx="20" class="iso"/>
+            <text x="200" y="230" text-anchor="middle" class="txt">Primary PC</text>
+            <text x="200" y="252" text-anchor="middle" class="sm">competitive / CS2</text>
+            <text x="200" y="284" text-anchor="middle" class="sm">No inference</text>
+            <text x="200" y="306" text-anchor="middle" class="sm">No toolchain</text>
+            <text x="200" y="328" text-anchor="middle" class="sm">No background load</text>
+
+            <!-- Remote UI -->
+            <rect x="380" y="110" width="180" height="70" rx="16" class="node"/>
+            <text x="470" y="142" text-anchor="middle" class="txt">Remote UI</text>
+            <text x="470" y="164" text-anchor="middle" class="sm">phone/web</text>
+
+            <!-- Linux node -->
+            <rect x="610" y="90" width="320" height="90" rx="18" class="linux"/>
+            <text x="770" y="130" text-anchor="middle" class="txt">Linux node</text>
+            <text x="770" y="152" text-anchor="middle" class="sm">reason + plan</text>
+
+            <!-- Windows node -->
+            <rect x="610" y="250" width="320" height="90" rx="18" class="win"/>
+            <text x="770" y="290" text-anchor="middle" class="txt">Windows node</text>
+            <text x="770" y="312" text-anchor="middle" class="sm">execute + write</text>
+
+            <!-- Verify -->
+            <rect x="610" y="410" width="320" height="70" rx="18" class="ok"/>
+            <text x="770" y="442" text-anchor="middle" class="txt">Verifier node</text>
+            <text x="770" y="464" text-anchor="middle" class="sm">place + validate</text>
+
+            <!-- Flows -->
+            <path d="M560 145 L610 135" class="line"/>
+            <path d="M770 180 C770 220, 770 230, 770 250" class="line"/>
+            <path d="M770 340 C770 380, 770 390, 770 410" class="line"/>
+
+            <!-- Isolation boundary -->
+            <path d="M330 190 C420 150, 520 160, 560 145" class="dash"/>
+            <text x="360" y="178" class="sm">No dependency on primary PC</text>
+
+            <text x="44" y="520" class="sub">Design goal: keep performance-critical environments stable by offloading everything else.</text>
+          </svg>
+
+          <div class="figcap">Visualisation: isolation boundary keeping the primary system untouched</div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>Why this design is calming (not just “technical”)</h2>
+        <p>
+          Distributed nodes reduce cognitive load by creating predictable lanes:
+          each part has a single job, and the order of operations is stable.
+          This reduces “messy restarts” and prevents the workflow from feeling hostile.
+        </p>
+        <ul>
+          <li>Clear start and stop points</li>
+          <li>Lower risk of accidental interference</li>
+          <li>Less ambiguity about where problems belong</li>
+          <li>More repeatable outcomes</li>
+        </ul>
+        <div class="callout">
+          <b>Outcome</b>
+          <div class="muted">
+            The system remains quiet: complexity increases without the workflow collapsing.
+          </div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>Summary</h2>
+        <div class="code">
+Distributed nodes = roles on separate machines.
+Primary goal = isolation + stability.
+Handoffs are explicit, failures stay local.
+Primary performance environments can remain untouched.
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      End of distributed nodes section.
+    </footer>
+
+  </div>
+</body>
+</html>

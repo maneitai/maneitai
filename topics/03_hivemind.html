@@ -1,0 +1,304 @@
+<!-- File: topics/03_hivemind.html
+     Page 3 — The Hivemind
+     Style: presenter voice, neutral, explanatory (no “you / I / my”)
+     Audience: ADHD / autism / dyslexia friendly
+     Notes:
+     - No JS needed
+     - Uses ../css/main.css from your scaffold
+     - Includes TWO inline diagrams:
+       (1) Hub-and-spoke role separation (hivemind)
+       (2) Failure localization (why separation prevents collapse)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Hivemind — specialization without overload</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <b>Maneit.ai × Emotional Gaming</b>
+          <span>Reference material • structured • calm • non-marketing</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Topics">
+        <a class="pill" href="../index.html">Home</a>
+        <a class="pill" href="./01_ai_basics.html">AI Basics</a>
+        <a class="pill" href="./02_automation_agents.html">Automation & Agents</a>
+        <a class="pill active" href="./03_hivemind.html">The Hivemind</a>
+        <a class="pill" href="./04_distributed_nodes.html">Distributed Nodes</a>
+        <a class="pill" href="./05_reasoning_model.html">Maneit Reasoning</a>
+        <a class="pill" href="./06_emotional_gaming.html">Emotional Gaming</a>
+        <a class="pill" href="./07_governance_status.html">Governance & Timing</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="kicker">POINT 3</div>
+      <h1>The Hivemind — not sci-fi, just role separation</h1>
+      <p class="lead">
+        This section defines “the hivemind” in a grounded way:
+        a set of specialized parts that share context without overwhelming each other.
+        The goal is stability under load, clean handoffs, and predictable behavior.
+      </p>
+
+      <!-- === VISUALISATION 1: HUB & SPOKE ROLES === -->
+      <div class="figure" role="group" aria-label="Hivemind roles diagram">
+        <svg viewBox="0 0 1000 560" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+             aria-label="Hub and spoke: specialized roles around a core reasoning layer">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.6)"/>
+            </marker>
+            <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(122,167,255,.95)"/>
+            </marker>
+
+            <style>
+              .frame { fill: rgba(0,0,0,.14); stroke: rgba(255,255,255,.12); stroke-width: 2; }
+              .node  { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+              .core  { fill: rgba(122,167,255,.14); stroke: rgba(122,167,255,.38); stroke-width: 2; }
+              .exec  { fill: rgba(110,242,194,.12); stroke: rgba(110,242,194,.30); stroke-width: 2; }
+              .warn  { fill: rgba(255,209,102,.10); stroke: rgba(255,209,102,.32); stroke-width: 2; }
+
+              .title { font: 900 20px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sub   { font: 650 13px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .txt   { font: 800 13px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sm    { font: 650 12px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .mono  { font: 650 12px ui-monospace, monospace; fill: #A9B7CC; }
+
+              .line  { fill:none; stroke: rgba(255,255,255,.32); stroke-width: 2.4; marker-end:url(#arrow); }
+              .lineA { fill:none; stroke: rgba(122,167,255,.90); stroke-width: 2.6; marker-end:url(#arrowA); }
+            </style>
+          </defs>
+
+          <rect x="16" y="16" width="968" height="528" rx="20" class="frame"/>
+
+          <text x="44" y="62" class="title">Hivemind structure (roles around a stable core)</text>
+          <text x="44" y="86" class="sub">One job per role. Clean handoffs. Shared reference without overload.</text>
+
+          <!-- Core -->
+          <circle cx="500" cy="270" r="90" class="core"/>
+          <text x="500" y="258" text-anchor="middle" class="txt">Core reasoning</text>
+          <text x="500" y="280" text-anchor="middle" class="sm">intent • planning</text>
+          <text x="500" y="302" text-anchor="middle" class="sm">priority • clarity</text>
+
+          <!-- Nodes -->
+          <rect x="110" y="110" width="220" height="70" rx="16" class="node"/>
+          <text x="220" y="150" text-anchor="middle" class="txt">Listener / intake</text>
+
+          <rect x="670" y="110" width="220" height="70" rx="16" class="node"/>
+          <text x="780" y="150" text-anchor="middle" class="txt">Planner / structurer</text>
+
+          <rect x="110" y="360" width="220" height="70" rx="16" class="node"/>
+          <text x="220" y="400" text-anchor="middle" class="txt">Verifier / placer</text>
+
+          <rect x="670" y="360" width="220" height="70" rx="16" class="exec"/>
+          <text x="780" y="392" text-anchor="middle" class="txt">Executor</text>
+          <text x="780" y="414" text-anchor="middle" class="sm">writes to disk</text>
+
+          <!-- Handoffs -->
+          <path d="M330 145 C400 170, 410 190, 430 220" class="line"/>
+          <path d="M670 145 C600 170, 590 190, 570 220" class="line"/>
+          <path d="M330 395 C400 370, 410 350, 430 320" class="line"/>
+          <path d="M670 395 C600 370, 590 350, 570 320" class="lineA"/>
+
+          <!-- Safety note -->
+          <rect x="70" y="460" width="860" height="70" rx="18" class="warn"/>
+          <text x="94" y="492" class="txt">Design rule</text>
+          <text x="94" y="514" class="sm">No role is allowed to do everything. Stability comes from specialization.</text>
+        </svg>
+
+        <div class="figcap">Visualisation: specialized roles around a stable reasoning core</div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="grid">
+
+      <div class="card wide">
+        <h2>Definition</h2>
+        <p>
+          “The hivemind” refers to a system design where multiple specialized components
+          collaborate through clean handoffs.
+          Each component is intentionally limited to a single responsibility.
+        </p>
+        <p>
+          This is not a claim of one “super mind.”
+          It is a practical solution to overload:
+          separating responsibilities prevents context collapse.
+        </p>
+        <div class="callout">
+          <b>One-sentence definition</b>
+          <div class="muted">
+            A hivemind is a set of specialized roles sharing reference safely, rather than one model doing everything at once.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>What it is</h2>
+        <ul>
+          <li>Role separation</li>
+          <li>Clean handoffs</li>
+          <li>Shared reference (not shared chaos)</li>
+          <li>Failures stay local</li>
+          <li>Predictable behavior over time</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What it is not</h2>
+        <ul>
+          <li>Not a “collective consciousness”</li>
+          <li>Not autonomous goal changes</li>
+          <li>Not one chat that knows everything forever</li>
+          <li>Not a replacement for human intent</li>
+          <li>Not a hype label</li>
+        </ul>
+      </div>
+
+      <div class="card wide">
+        <h2>Why one model doing everything breaks</h2>
+        <p>
+          Large tasks require multiple kinds of work:
+          interpretation, planning, writing, execution, verification.
+          When these roles are combined in one context,
+          the system becomes noisy and unstable.
+        </p>
+        <ul>
+          <li>Planning gets rewritten by execution constraints</li>
+          <li>Long outputs drift away from the original goal</li>
+          <li>“Fixing” one detail breaks another</li>
+          <li>Errors propagate globally instead of staying contained</li>
+        </ul>
+        <div class="callout">
+          <b>Core failure mode</b>
+          <div class="muted">
+            Overload causes drift. Drift causes rework. Rework increases overload. The loop collapses.
+          </div>
+        </div>
+      </div>
+
+      <!-- === VISUALISATION 2: FAILURE LOCALIZATION === -->
+      <div class="card wide">
+        <h2>Failure localization: the difference between chaos and stability</h2>
+        <p>
+          A system becomes reliable when failure stays local.
+          This is the primary reason for a hivemind design:
+          problems remain contained instead of poisoning the entire workflow.
+        </p>
+
+        <div class="figure" role="group" aria-label="Failure localization diagram">
+          <svg viewBox="0 0 1000 560" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+               aria-label="Comparison: monolith versus separated roles">
+            <defs>
+              <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.6)"/>
+              </marker>
+              <style>
+                .frame { fill: rgba(0,0,0,.14); stroke: rgba(255,255,255,.12); stroke-width: 2; }
+                .box   { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+                .accent{ fill: rgba(122,167,255,.14); stroke: rgba(122,167,255,.38); stroke-width: 2; }
+                .ok    { fill: rgba(110,242,194,.10); stroke: rgba(110,242,194,.30); stroke-width: 2; }
+                .bad   { fill: rgba(255,107,107,.10); stroke: rgba(255,107,107,.34); stroke-width: 2; }
+
+                .title { font: 900 20px ui-sans-serif, system-ui; fill: #EAF1FF; }
+                .sub   { font: 650 13px ui-sans-serif, system-ui; fill: #A9B7CC; }
+                .txt   { font: 800 13px ui-sans-serif, system-ui; fill: #EAF1FF; }
+                .sm    { font: 650 12px ui-sans-serif, system-ui; fill: #A9B7CC; }
+
+                .line  { fill:none; stroke: rgba(255,255,255,.32); stroke-width: 2.4; marker-end:url(#arrow3); }
+              </style>
+            </defs>
+
+            <rect x="16" y="16" width="968" height="528" rx="20" class="frame"/>
+            <text x="44" y="62" class="title">Failure localization (why separation matters)</text>
+            <text x="44" y="86" class="sub">Left: monolith (everything mixed). Right: roles (failure stays contained).</text>
+
+            <!-- Left: Monolith -->
+            <rect x="70" y="140" width="390" height="340" rx="20" class="box"/>
+            <text x="265" y="176" text-anchor="middle" class="txt">Monolith</text>
+            <text x="265" y="198" text-anchor="middle" class="sm">one context does everything</text>
+
+            <rect x="110" y="230" width="310" height="70" rx="16" class="bad"/>
+            <text x="265" y="270" text-anchor="middle" class="txt">Single failure</text>
+
+            <path d="M265 300 L265 410" class="line"/>
+            <text x="265" y="440" text-anchor="middle" class="sm">drift spreads globally</text>
+
+            <!-- Right: Roles -->
+            <rect x="540" y="140" width="390" height="340" rx="20" class="box"/>
+            <text x="735" y="176" text-anchor="middle" class="txt">Separated roles</text>
+            <text x="735" y="198" text-anchor="middle" class="sm">handoffs + gates</text>
+
+            <rect x="580" y="230" width="150" height="60" rx="16" class="ok"/>
+            <text x="655" y="266" text-anchor="middle" class="txt">Reason</text>
+
+            <rect x="760" y="230" width="150" height="60" rx="16" class="bad"/>
+            <text x="835" y="266" text-anchor="middle" class="txt">Execute</text>
+
+            <path d="M835 290 L835 350" class="line"/>
+            <text x="835" y="380" text-anchor="middle" class="sm">failure stays here</text>
+
+            <rect x="580" y="360" width="330" height="70" rx="16" class="ok"/>
+            <text x="735" y="400" text-anchor="middle" class="txt">System remains stable</text>
+          </svg>
+
+          <div class="figcap">Visualisation: monolith drift vs localized failure in separated roles</div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>Why this is calming (not just “more powerful”)</h2>
+        <p>
+          For ADHD/autism and high-intensity thinking, the main risk is overload.
+          Overload increases stress and reduces clarity.
+          A hivemind design reduces overload by distributing responsibilities.
+        </p>
+        <ul>
+          <li>Less context noise in each step</li>
+          <li>Fewer “everything at once” demands</li>
+          <li>Clear boundaries: what happens where</li>
+          <li>More predictable iteration cycles</li>
+        </ul>
+        <div class="callout">
+          <b>Outcome</b>
+          <div class="muted">
+            Complex tasks stop feeling hostile when the system stops collapsing under complexity.
+          </div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>Summary</h2>
+        <div class="code">
+Hivemind = specialized roles + clean handoffs.
+Not one “super mind” — a stability architecture.
+Stability comes from keeping responsibilities separate.
+Failures stay local instead of poisoning the whole workflow.
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      End of hivemind section.
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!-- File: topics/01_ai_basics.html
+     Page 1 — AI Basics
+     Style: presenter voice, neutral, explanatory
+     Audience: ADHD / autism / dyslexia friendly
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Basics — How standard models work</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <b>Maneit.ai × Emotional Gaming</b>
+          <span>Reference material • structured • calm • non-marketing</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Topics">
+        <a class="pill" href="../index.html">Home</a>
+        <a class="pill active" href="./01_ai_basics.html">AI Basics</a>
+        <a class="pill" href="./02_automation_agents.html">Automation & Agents</a>
+        <a class="pill" href="./03_hivemind.html">The Hivemind</a>
+        <a class="pill" href="./04_distributed_nodes.html">Distributed Nodes</a>
+        <a class="pill" href="./05_reasoning_model.html">Maneit Reasoning</a>
+        <a class="pill" href="./06_emotional_gaming.html">Emotional Gaming</a>
+        <a class="pill" href="./07_governance_status.html">Governance & Timing</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="kicker">POINT 1 — FOUNDATION</div>
+      <h1>AI Basics — how standard AI models operate</h1>
+      <p class="lead">
+        This section establishes a shared baseline.
+        It explains how most conversational AI systems function today,
+        what they are good at, and where structural friction appears.
+        The focus is interaction behavior — not hype, not marketing.
+      </p>
+
+      <!-- === VISUALISATION === -->
+      <div class="figure" role="group" aria-label="Standard AI interaction loop">
+        <svg viewBox="0 0 1000 560" width="100%" height="auto"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-label="Prompt-response loop with friction zones">
+
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.6)"/>
+            </marker>
+
+            <style>
+              .frame { fill: rgba(0,0,0,.14); stroke: rgba(255,255,255,.12); stroke-width: 2; }
+              .box   { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+              .pill  { fill: rgba(255,255,255,.05); stroke: rgba(255,255,255,.22); stroke-width: 2; }
+              .accent{ fill: rgba(122,167,255,.14); stroke: rgba(122,167,255,.38); stroke-width: 2; }
+              .warn  { fill: rgba(255,209,102,.10); stroke: rgba(255,209,102,.32); stroke-width: 2; }
+
+              .title { font: 900 20px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sub   { font: 650 13px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .txt   { font: 800 13px ui-sans-serif, system-ui; fill: #EAF1FF; }
+              .sm    { font: 650 12px ui-sans-serif, system-ui; fill: #A9B7CC; }
+              .mono  { font: 650 12px ui-monospace, monospace; fill: #A9B7CC; }
+
+              .line  { fill:none; stroke: rgba(255,255,255,.35); stroke-width: 2.5; marker-end:url(#arrow); }
+            </style>
+          </defs>
+
+          <!-- frame -->
+          <rect x="16" y="16" width="968" height="528" rx="20" class="frame"/>
+
+          <text x="44" y="62" class="title">Standard AI interaction loop</text>
+          <text x="44" y="86" class="sub">Prompt → Response → Adjust → Repeat</text>
+
+          <!-- main flow -->
+          <rect x="70"  y="160" width="240" height="86" rx="16" class="box"/>
+          <text x="190" y="197" text-anchor="middle" class="txt">Human input</text>
+          <text x="190" y="218" text-anchor="middle" class="sm">prompt / context</text>
+
+          <rect x="380" y="150" width="240" height="106" rx="16" class="accent"/>
+          <text x="500" y="194" text-anchor="middle" class="txt">AI model</text>
+          <text x="500" y="216" text-anchor="middle" class="sm">language & patterns</text>
+
+          <rect x="690" y="160" width="240" height="86" rx="999" class="pill"/>
+          <text x="810" y="197" text-anchor="middle" class="txt">Output</text>
+          <text x="810" y="218" text-anchor="middle" class="sm">text / code / answer</text>
+
+          <!-- arrows -->
+          <path d="M310 203 L380 203" class="line"/>
+          <path d="M620 203 L690 203" class="line"/>
+          <path d="M810 246 C810 320, 500 320, 190 246" class="line"/>
+
+          <text x="500" y="338" text-anchor="middle" class="mono">
+            feedback loop — rephrase, retry, restart
+          </text>
+
+          <!-- friction zone -->
+          <rect x="70" y="380" width="860" height="120" rx="18" class="warn"/>
+          <text x="94" y="410" class="txt">Friction zone</text>
+          <text x="94" y="436" class="sm">• Linear prompts required</text>
+          <text x="94" y="458" class="sm">• Context must be rebuilt manually</text>
+          <text x="94" y="480" class="sm">• Momentum is often lost between retries</text>
+
+        </svg>
+
+        <div class="figcap">Visualisation: standard prompt–response interaction and where friction accumulates</div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="grid">
+
+      <div class="card wide">
+        <h2>What a standard conversational AI model is</h2>
+        <p>
+          Most conversational AI systems today are large language models.
+          Their core function is to predict the most likely continuation of text
+          based on the text provided as input.
+        </p>
+        <p>
+          At sufficient scale, this capability presents as explanation,
+          summarization, code generation, and structured writing.
+          The system does not hold intent on its own — intent must be continuously supplied.
+        </p>
+        <div class="callout">
+          <b>Important clarification</b>
+          <div class="muted">
+            This description focuses on behavior and interaction,
+            not on philosophical claims about intelligence.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Strengths</h2>
+        <ul>
+          <li>Very fast language generation</li>
+          <li>Strong pattern recognition</li>
+          <li>Good at restructuring information</li>
+          <li>Consistent iteration without fatigue</li>
+          <li>High availability as a drafting tool</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Structural limitations</h2>
+        <ul>
+          <li>Context is session-based and fragile</li>
+          <li>Emotional or cognitive state is ignored</li>
+          <li>Long tasks risk goal drift</li>
+          <li>Non-linear input must be flattened</li>
+          <li>Errors may appear confident</li>
+        </ul>
+        <p>
+          These limitations are caused by interface assumptions,
+          not by lack of capability.
+        </p>
+      </div>
+
+      <div class="card wide">
+        <h2>The translation burden</h2>
+        <p>
+          Standard AI interfaces assume ordered, linear input.
+          When thoughts arrive in bursts, layers, or parallel threads,
+          the responsibility for translation lies entirely with the human.
+        </p>
+        <ul>
+          <li>Intent must be repeatedly restated</li>
+          <li>Priority must be clarified again and again</li>
+          <li>Context must be rebuilt across sessions</li>
+          <li>Flow is interrupted by re-explanation</li>
+        </ul>
+        <div class="callout">
+          <b>Anchor statement</b>
+          <div class="muted">
+            AI systems expect linear input.  
+            Many human thinking styles are not linear.  
+            The resulting friction is structural.
+          </div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>Why this leads to system-level solutions</h2>
+        <p>
+          Once the translation burden is visible,
+          improving prompts alone is insufficient.
+          The interaction model itself must change.
+        </p>
+        <ul>
+          <li>Continuity must persist over time</li>
+          <li>Reasoning must be separated from execution</li>
+          <li>Structure must exist independently of output</li>
+          <li>Repetition must be replaced by state</li>
+        </ul>
+      </div>
+
+      <div class="card wide">
+        <h2>Summary</h2>
+        <div class="code">
+Standard AI = prompt → response.
+Strength comes from scale and language.
+Friction comes from linear interaction assumptions.
+Reducing friction requires changing the system, not the person.
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      End of foundation section.
+    </footer>
+
+  </div>
+</body>
+</html>

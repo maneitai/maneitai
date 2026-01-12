@@ -1,0 +1,251 @@
+<!-- File: topics/05_maneit_reasoning_layer.html
+     Page 5 — Maneit Reasoning Layer (Origin + Why it adapts fast)
+     Style: presenter voice, neutral, explanatory (no “you / I / my”)
+     Audience: ADHD / autism / dyslexia friendly
+     Notes:
+     - 1-to-1 slide (assumes shared context)
+     - No JS needed
+     - Uses ../css/main.css from scaffold
+     - Includes TWO inline diagrams:
+       (1) Longitudinal extraction → grammar → layer → OS
+       (2) Rapid adaptation loop (direction-first)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maneit Reasoning Layer — how it formed, why it adapts fast</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <b>Maneit.ai × Emotional Gaming</b>
+          <span>Reference material • structured • calm • non-marketing</span>
+        </div>
+      </div>
+
+      <div class="meta">
+        <span class="pill">Page 5</span>
+        <span class="pill">Reasoning Layer</span>
+        <span class="pill">1-to-1 sync</span>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+
+      <section class="hero">
+        <h1>Maneit Reasoning Layer</h1>
+        <p class="lead">
+          The “reasoning model” is a stable grammar for problem-solving.
+          It formed through longitudinal extraction, then demanded infrastructure.
+        </p>
+      </section>
+
+      <section class="grid two">
+        <!-- LEFT: concise but detailed -->
+        <article class="card">
+          <h2>What it is (precise)</h2>
+          <ul class="clean">
+            <li><b>Not</b> a personality imitation.</li>
+            <li><b>Not</b> a style preset.</li>
+            <li><b>Not</b> “better answers.”</li>
+            <li><b>Is</b> a <b>problem-solving grammar</b> extracted from real interactions.</li>
+          </ul>
+
+          <div class="sep"></div>
+
+          <h2>What was extracted (specific)</h2>
+          <ul class="clean">
+            <li><b>Direction correction thresholds</b> (when something becomes “wrong frame”).</li>
+            <li><b>Early rejection triggers</b> (when a solution is dropped before finishing).</li>
+            <li><b>Friction signals</b> (when something feels off before it is explainable).</li>
+            <li><b>Exploration patterns</b> (edge-testing before definitions lock).</li>
+            <li><b>Decision gates</b> (what must be true before execution is allowed).</li>
+          </ul>
+
+          <div class="note">
+            This is why adaptation looks instant:
+            the system recognizes <b>structure</b>, not just content.
+          </div>
+        </article>
+
+        <!-- RIGHT: mechanism + why it becomes OS -->
+        <article class="card">
+          <h2>Why it adapts fast (mechanism)</h2>
+          <ul class="clean">
+            <li><b>Correction before optimization.</b> Stops “better solutions to the wrong problem.”</li>
+            <li><b>Edges before center.</b> Tests boundaries, then commits.</li>
+            <li><b>Intent before execution.</b> Keeps meaning stable while details move.</li>
+            <li><b>Interruption is a primary signal.</b> “No, not like that” is first-class input.</li>
+          </ul>
+
+          <div class="sep"></div>
+
+          <h2>Why it becomes an OS (inevitable)</h2>
+          <ul class="clean">
+            <li>Once the grammar is stable, it can be <b>externalized</b>.</li>
+            <li>Externalization requires <b>guards</b>: state, gates, work orders, rollback.</li>
+            <li>Infrastructure exists to protect the grammar from:
+              <ul class="clean" style="margin-top:.5rem">
+                <li>speed / impulse</li>
+                <li>noise / overload</li>
+                <li>premature commitment</li>
+                <li>drift from intent</li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="quote">
+            <b>Lock line:</b><br />
+            This system was built by modeling <b>how problems get corrected over time</b> —
+            not by training for correct answers.
+          </div>
+        </article>
+      </section>
+
+      <!-- DIAGRAMS -->
+      <section class="grid two">
+        <!-- Diagram 1 -->
+        <article class="card">
+          <h2>Diagram 1 — Longitudinal extraction → layer → OS</h2>
+          <p class="small">
+            The order matters. The grammar appears first. The OS is built after.
+          </p>
+
+          <svg viewBox="0 0 980 260" role="img" aria-label="Extraction pipeline diagram" class="diagram">
+            <defs>
+              <style>
+                .bx { fill: none; stroke: currentColor; stroke-width: 2; }
+                .tx { font: 16px system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: currentColor; }
+                .sm { font: 13px system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: currentColor; opacity: .9; }
+                .ar { fill: none; stroke: currentColor; stroke-width: 2; marker-end: url(#m); }
+              </style>
+              <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L9,3 L0,6" fill="currentColor"></path>
+              </marker>
+            </defs>
+
+            <!-- Boxes -->
+            <rect class="bx" x="20"  y="50" width="210" height="140" rx="14"></rect>
+            <rect class="bx" x="260" y="50" width="210" height="140" rx="14"></rect>
+            <rect class="bx" x="500" y="50" width="210" height="140" rx="14"></rect>
+            <rect class="bx" x="740" y="50" width="220" height="140" rx="14"></rect>
+
+            <!-- Arrows -->
+            <path class="ar" d="M230 120 L260 120"></path>
+            <path class="ar" d="M470 120 L500 120"></path>
+            <path class="ar" d="M710 120 L740 120"></path>
+
+            <!-- Text -->
+            <text class="tx" x="35" y="88"><tspan font-weight="700">1) Year-scale logs</tspan></text>
+            <text class="sm" x="35" y="112">Longitudinal interactions</text>
+            <text class="sm" x="35" y="134">Real corrections + re-frames</text>
+            <text class="sm" x="35" y="156">Actual “no, not like that” points</text>
+
+            <text class="tx" x="275" y="88"><tspan font-weight="700">2) Deep extraction</tspan></text>
+            <text class="sm" x="275" y="112">Patterns, thresholds, gates</text>
+            <text class="sm" x="275" y="134">Friction signals</text>
+            <text class="sm" x="275" y="156">Decision readiness markers</text>
+
+            <text class="tx" x="515" y="88"><tspan font-weight="700">3) Reasoning grammar</tspan></text>
+            <text class="sm" x="515" y="112">Stable problem-solving rules</text>
+            <text class="sm" x="515" y="134">Direction-first behavior</text>
+            <text class="sm" x="515" y="156">Interruptions are valid input</text>
+
+            <text class="tx" x="755" y="88"><tspan font-weight="700">4) Operating system</tspan></text>
+            <text class="sm" x="755" y="112">Infrastructure that protects intent</text>
+            <text class="sm" x="755" y="134">Gates • state • rollback</text>
+            <text class="sm" x="755" y="156">Work orders • execution contracts</text>
+
+            <!-- Footer hint -->
+            <text class="sm" x="20" y="230">
+              Key claim: the OS is a consequence of the grammar, not the starting point.
+            </text>
+          </svg>
+        </article>
+
+        <!-- Diagram 2 -->
+        <article class="card">
+          <h2>Diagram 2 — Rapid adaptation loop (direction-first)</h2>
+          <p class="small">
+            “Fast” comes from fewer wrong steps. The loop catches frame drift early.
+          </p>
+
+          <svg viewBox="0 0 980 260" role="img" aria-label="Rapid adaptation loop diagram" class="diagram">
+            <defs>
+              <style>
+                .bx { fill: none; stroke: currentColor; stroke-width: 2; }
+                .tx { font: 16px system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: currentColor; }
+                .sm { font: 13px system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: currentColor; opacity: .9; }
+                .ar { fill: none; stroke: currentColor; stroke-width: 2; marker-end: url(#m2); }
+                .ring { fill: none; stroke: currentColor; stroke-width: 2; opacity: .35; }
+              </style>
+              <marker id="m2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L9,3 L0,6" fill="currentColor"></path>
+              </marker>
+            </defs>
+
+            <!-- Soft ring -->
+            <circle class="ring" cx="490" cy="130" r="110"></circle>
+
+            <!-- Nodes -->
+            <rect class="bx" x="60"  y="95" width="210" height="70" rx="14"></rect>
+            <rect class="bx" x="320" y="30" width="340" height="70" rx="14"></rect>
+            <rect class="bx" x="700" y="95" width="220" height="70" rx="14"></rect>
+            <rect class="bx" x="320" y="160" width="340" height="70" rx="14"></rect>
+
+            <!-- Arrows (loop) -->
+            <path class="ar" d="M270 130 L320 65"></path>
+            <path class="ar" d="M660 65 L700 130"></path>
+            <path class="ar" d="M810 165 L660 195"></path>
+            <path class="ar" d="M320 195 L270 130"></path>
+
+            <!-- Text -->
+            <text class="tx" x="75" y="123"><tspan font-weight="700">Input / situation</tspan></text>
+            <text class="sm" x="75" y="145">Messy, incomplete, real-time</text>
+
+            <text class="tx" x="335" y="58"><tspan font-weight="700">Frame & intent check</tspan></text>
+            <text class="sm" x="335" y="80">Detect drift • refuse premature commitment</text>
+
+            <text class="tx" x="715" y="123"><tspan font-weight="700">Plan & execute</tspan></text>
+            <text class="sm" x="715" y="145">Only after direction is stable</text>
+
+            <text class="tx" x="335" y="188"><tspan font-weight="700">Friction & correction signals</tspan></text>
+            <text class="sm" x="335" y="210">Interruptions • “no, not like that” • edge tests</text>
+
+            <!-- Footer hint -->
+            <text class="sm" x="60" y="240">
+              Key claim: optimization is allowed only after directional integrity holds.
+            </text>
+          </svg>
+        </article>
+      </section>
+
+      <!-- Minimal speaker anchor -->
+      <section class="card">
+        <h2>Speaker anchor (1-to-1)</h2>
+        <ul class="clean">
+          <li>This is not a product claim. It is an origin claim.</li>
+          <li>The only test that matters: does this grammar match lived collaboration?</li>
+          <li>If the grammar matches, building tools becomes straightforward. If not, tools will always drift.</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="muted">Maneit.ai • internal reference • page 5</span>
+    </footer>
+
+  </div>
+</body>
+</html>
